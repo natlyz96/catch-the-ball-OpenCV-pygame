@@ -129,7 +129,7 @@ def main(ball_radius=DEFAULT_RADIUS, alpha_initial=DEFAULT_ALPHA_INITIAL, \
                 if current_time % screenshot_steps == 0:
                     canvas_clipped.fill((WHITE))
                     # take only the part of screen between two borders
-                    canvas_clipped.blit(canvas, (-left_vision_border, 0))
+                    canvas_clipped.blit(canvas, (-firstVisibilityBorder.position, 0))
                     image = capture_image(canvas=canvas_clipped, renderer = ARRAY_RENDERER)
 
                     ball_сenter = get_ball_center(
@@ -192,7 +192,7 @@ def main(ball_radius=DEFAULT_RADIUS, alpha_initial=DEFAULT_ALPHA_INITIAL, \
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return 'exit'
-            elif event.type == pygame.KEYDOWN and event.type != pygame.QUIT:
+            elif event.type == pygame.KEYDOWN:
                 return 'repeat'
 
 
